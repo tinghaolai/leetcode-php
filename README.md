@@ -3,6 +3,6 @@
 
 ### Todo: Bad Solution
 
-* 1689
+* 1689, 1678
 
 ### Worth to review
