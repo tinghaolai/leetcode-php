@@ -8,6 +8,14 @@ if (!function_exists('println')) {
                 print(print_r($output, true));
                 print(PHP_EOL);
             } else {
+                if ($output === true) {
+                    $output = 'true';
+                }
+
+                if ($output === false) {
+                    $output = 'false';
+                }
+
                 print($output . PHP_EOL);
             }
         }
