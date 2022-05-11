@@ -32,7 +32,7 @@ if (!$require) {
 require $require;
 
 $solution = new Solution();
-if (method_exists($solution,'testAAAAAA')) {
+if (method_exists($solution,'test')) {
     dd('--test solution--', $solution->test());
 } else {
     $firstFunction = get_class_methods($solution)[0];
