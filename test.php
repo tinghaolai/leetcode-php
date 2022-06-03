@@ -8,20 +8,20 @@ if (isset($argv[1])) {
     $problemNumber = readline('enter problem number: ');
 }
 
-if (substr($problemNumber, -4) !== '.php') {
-    $problemNumber .= '.php';
-}
-
-while (strlen($problemNumber) < 8) {
+while (strlen($problemNumber) < 4) {
     $problemNumber = '0' . $problemNumber;
 }
 
 $require = null;
 foreach (['.', 'easy', 'medium', 'hard']as $folder) {
-    $path = $folder . '/' . $problemNumber;
-    if (@fopen($path, 'r')) {
-        $require = $path;
-        break;
+    foreach(glob($folder . '/*.*') as $file) {
+        $pattern = '/.*' . $problemNumber .'.*/';
+        if (preg_match($pattern, $file)) {
+            if (@fopen($file, 'r')) {
+                $require = $file;
+                break;
+            }
+        };
     }
 }
 
