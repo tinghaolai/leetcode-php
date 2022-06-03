@@ -7,6 +7,8 @@ if (!function_exists('println')) {
             if (is_array($output)) {
                 print(print_r($output, true));
                 print(PHP_EOL);
+            } else if (is_object($output)) {
+                print_r($output);
             } else {
                 if ($output === true) {
                     $output = 'true';
