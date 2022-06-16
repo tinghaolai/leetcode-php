@@ -13,7 +13,11 @@ while (strlen($problemNumber) < 4) {
 }
 
 $require = null;
-foreach (['.', 'easy', 'medium', 'hard']as $folder) {
+
+$folders = ['.'];
+findFolders();
+
+foreach ($folders as $folder) {
     foreach(glob($folder . '/*.*') as $file) {
         $pattern = '/.*' . $problemNumber .'.*/';
         if (preg_match($pattern, $file)) {
@@ -22,6 +26,15 @@ foreach (['.', 'easy', 'medium', 'hard']as $folder) {
                 break;
             }
         };
+    }
+}
+
+function findFolders($path = '')
+{
+    $dirs = array_filter(glob($path . '*'), 'is_dir');
+    foreach ($dirs as $dir) {
+        $GLOBALS['folders'][] = $dir;
+        findFolders($path . $dir . '/');
     }
 }
 
