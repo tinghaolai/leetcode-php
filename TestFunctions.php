@@ -56,20 +56,19 @@ function binaryCeilSearch($array, $target)
         return $array[$start];
     }
 
-    while (true) {
+    while ($start <= $end) {
         $middle = intdiv($start + $end, 2);
         if ($array[$middle] === $target) {
             return $target;
         }
 
         if ($array[$middle] < $target) {
-            $start = $middle;
+            $start = $middle + 1;
         } else {
-            $end = $middle;
-        }
-
-        if ($end - $start === 1) {
-            return $array[$end];
+            $ceil = $array[$middle];
+            $end = $middle - 1;
         }
     }
+
+    return $ceil;
 }
