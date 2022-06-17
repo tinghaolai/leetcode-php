@@ -43,3 +43,33 @@ if(!function_exists('readline')) {
         return $line;
     }
 }
+
+function binaryCeilSearch($array, $target)
+{
+    $start = 0;
+    $end = count($array) - 1;
+    if ($target > $array[$end]) {
+        return -1;
+    }
+
+    if ($target < $array[$start]) {
+        return $array[$start];
+    }
+
+    while (true) {
+        $middle = intdiv($start + $end, 2);
+        if ($array[$middle] === $target) {
+            return $target;
+        }
+
+        if ($array[$middle] < $target) {
+            $start = $middle;
+        } else {
+            $end = $middle;
+        }
+
+        if ($end - $start === 1) {
+            return $array[$end];
+        }
+    }
+}
