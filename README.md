@@ -7,6 +7,8 @@
 
 * Hard
     * 0980
+* Medium
+    * 2300
 
 ### Worth to review
 
