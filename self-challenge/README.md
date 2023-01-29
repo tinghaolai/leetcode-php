@@ -1,0 +1,1 @@
+solve one medium per day, if not, accumulate to next day and have to solve one more problem.
