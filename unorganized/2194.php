@@ -18,7 +18,7 @@ class Solution {
         $output   = [];
         for ($j = $colStart; $j <= $colEnd; $j++) {
             for ($i = $rowStart; $i <= $rowEnd; $i++) {
-                $output[] = chr($j) . $i;
+                $output[] = phpchr($j) . $i;
             }
         }
         return $output;
