@@ -20,3 +20,4 @@
 
 * 0173 - In-order
 * 2358
+* 1626 - dynamic programming
