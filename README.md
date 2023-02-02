@@ -14,10 +14,10 @@
     * 2333
     * 2352
     * 0011
-    * 1769
 
 ### Worth to review
 
 * 0173 - In-order
 * 2358
 * 1626 - dynamic programming
+* 1769
