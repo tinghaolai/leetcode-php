@@ -105,4 +105,31 @@ function binaryCeilSearch_second_solution($array, $target)
             return $array[$end];
         }
     }
+
+    function isPrime($num)
+    {
+        if (!is_int($num)) {
+            return false;
+        }
+
+        if ($num <= 1) {
+            return false;
+        }
+
+        if ($num == 2 || $num == 3) {
+            return true;
+        }
+
+        if ($num % 2 == 0 || $num % 3 == 0) {
+            return false;
+        }
+
+        for ($i = 5; $i <= sqrt($num); $i += 6) {
+            if ($num % $i == 0 || $num % ($i + 2) == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
