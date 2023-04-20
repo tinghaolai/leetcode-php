@@ -133,3 +133,38 @@ function binaryCeilSearch_second_solution($array, $target)
         return true;
     }
 }
+
+class TreeNode {
+    public $val;
+    public $left = null;
+    public $right = null;
+    function __construct($val = 0, $left = null, $right = null) {
+        $this->val = $val;
+        $this->left = $left;
+        $this->right = $right;
+    }
+
+    static function buildTree($arr) {
+    $n = count($arr);
+    if ($n === 0) {
+        return null;
+    }
+    $root = new \App\Console\Commands\TreeNode($arr[0]);
+    $queue = [$root];
+    $i = 1;
+    while ($i < $n) {
+        $node = array_shift($queue);
+        if ($arr[$i] !== null) {
+            $node->left = new TreeNode($arr[$i]);
+            array_push($queue, $node->left);
+        }
+        $i++;
+        if ($i < $n && $arr[$i] !== null) {
+            $node->right = new TreeNode($arr[$i]);
+            array_push($queue, $node->right);
+        }
+        $i++;
+    }
+    return $root;
+}
+}
